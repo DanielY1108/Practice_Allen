@@ -269,20 +269,20 @@ extension LoginView: UITextFieldDelegate {
         }
         
         UIView.animate(withDuration: 0.3) {
-            self.stackView.layoutIfNeeded()
+            self.layoutIfNeeded()
         }
         
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == emailTextField {
+        if textField == emailTextField, emailTextField.text == ""  {
             emailTextFieldView.backgroundColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
             
-            if emailTextField.text == "" {
+//            if emailTextField.text == "" {
                 emailInfoLabel.font = UIFont.systemFont(ofSize: 18)
                 emailInfoLabelCenterYConstraint.constant = 0
-            }
+//            }
         }
         
         if textField == passwordTextField {
@@ -325,4 +325,5 @@ extension LoginView: UITextFieldDelegate {
     }
     
 }
+
 
